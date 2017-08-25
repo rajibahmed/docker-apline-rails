@@ -1,0 +1,23 @@
+version: '2'
+services:
+  web:
+    build: .
+    environment:
+      - VIRTUAL_HOST=myapp.local
+      - RAILS_ENV=production
+    depends_on:
+      - db
+  db:
+    image: postgres:9.5
+    volume:
+      - "pgdata:/var/lib/postgresql/data"
+
+  proxy:
+    image: jwilder/nginx-proxy:latest
+    ports:
+      - "80:80"
+    volumes:
+      - "/var/run/docker.sock:/tmp/docker.sock"
+
+  volume:
+    pgdata: {}
