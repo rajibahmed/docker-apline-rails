@@ -9,7 +9,7 @@ services:
       - db
   db:
     image: postgres:9.5
-    volume:
+    volumes:
       - "pgdata:/var/lib/postgresql/data"
 
   proxy:
@@ -19,5 +19,5 @@ services:
     volumes:
       - "/var/run/docker.sock:/tmp/docker.sock"
 
-  volume:
-    pgdata: {}
+volumes:
+  pgdata:
