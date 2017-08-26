@@ -2,9 +2,8 @@ version: '2'
 services:
   web:
     build: .
-    environment:
-      - VIRTUAL_HOST=myapp.local
-      - RAILS_ENV=production
+    env_file:
+      - ./config/docker.env
     depends_on:
       - db
   db:
