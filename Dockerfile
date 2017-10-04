@@ -5,11 +5,8 @@ LABEL team="panda"
 ENV APP_DIR=/opt/app_name
 
 ENV BUILD_PACKAGES="ruby-dev build-base" \
-    DEV_PACKAGES="zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev postgresql-dev " \
+    DEV_PACKAGES="zlib-dev libxml2-dev libxslt-dev tzdata yaml-dev postgresql-dev curl-dev" \
     RUBY_PACKAGES="ruby ruby-io-console ruby-json yaml "
-
-ENV BUILD_PACKAGES bash curl-dev ruby-dev build-base
-ENV RUBY_PACKAGES ruby ruby-io-console ruby-bundler
 
 RUN \
   apk --update --upgrade add $BUILD_PACKAGES $RUBY_PACKAGES $DEV_PACKAGES && \
